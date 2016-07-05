@@ -1,10 +1,10 @@
 package route
 
 import (
-	"platform_accounts/db"
-	"platform_accounts/handler"
-	myMw "platform_accounts/middleware"
-	"platform_accounts/v1/resource"
+	"platform_points/db"
+	"platform_points/handler"
+	myMw "platform_points/middleware"
+	"platform_points/v1/resource"
 
 	"github.com/labstack/echo"
 	echoMw "github.com/labstack/echo/middleware"
@@ -29,7 +29,7 @@ func Init() *echo.Echo {
 	e.Use(myMw.TransactionHandler(db.Init()))
 
 	// Routes
-	v1 := e.Group("/v2")
+	v1 := e.Group("/v1")
 	{
 		v1.POST("/members", resource.PostMember())
 		v1.GET("/members", resource.GetMembers())

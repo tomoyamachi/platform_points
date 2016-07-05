@@ -3,7 +3,7 @@ package resource
 import (
 	"strconv"
 
-	"platform_accounts/model"
+	"platform_points/model"
 
 	"github.com/Sirupsen/logrus"
 	"github.com/gocraft/dbr"

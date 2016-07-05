@@ -1,7 +1,7 @@
 package db
 
 import (
-	"platform_accounts/conf"
+	"platform_points/conf"
 
 	"github.com/Sirupsen/logrus"
 	_ "github.com/go-sql-driver/mysql"

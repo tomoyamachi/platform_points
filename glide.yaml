@@ -1,4 +1,4 @@
-package: platform_accounts
+package: platform_points
 import:
   - package: github.com/labstack/echo
   - package: github.com/gocraft/dbr
