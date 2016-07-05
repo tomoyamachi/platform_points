@@ -1,6 +1,7 @@
 package middleware
 
 import (
+	"github.com/Sirupsen/logrus"
 	"github.com/gocraft/dbr"
 	"github.com/labstack/echo"
 )
@@ -11,7 +12,7 @@ func TxMiddleware(session *dbr.Session) echo.MiddlewareFunc {
 			tx, err := session.Begin()
 
 			if err != nil {
-				// logを入れる
+				logrus.Error(err)
 			} else {
 				c.Set("Tx", tx)
 
