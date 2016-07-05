@@ -1,7 +1,7 @@
 package main
 
 import (
-	"platform_accounts/route"
+	"platform_accounts/v2/route"
 
 	"github.com/Sirupsen/logrus"
 	"github.com/labstack/echo/engine/standard"
