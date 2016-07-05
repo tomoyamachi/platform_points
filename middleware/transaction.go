@@ -16,7 +16,6 @@ func TransactionHandler(db *dbr.Session) echo.MiddlewareFunc {
 		return echo.HandlerFunc(func(c echo.Context) error {
 
 			tx, _ := db.Begin()
-
 			c.Set(TxKey, tx)
 
 			if err := next(c); err != nil {

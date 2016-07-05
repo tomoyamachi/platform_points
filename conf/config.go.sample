@@ -1,9 +1,17 @@
 package conf
 
-const (
-	USER     string = "root"
-	PASSWORD string = ""
-	DB       string = "dbname"
-	HOST     string = "localhost"
-	PORT     string = "3306"
-)
+type DbManager struct {
+	User     string
+	Password string
+	Dbname   string
+	Host     string
+	Port     string
+}
+
+var MasterDb = &DbManager{
+	User:     "root",
+	Password: "",
+	Dbname:   "accounts",
+	Host:     "localhost",
+	Port:     "3306",
+}
