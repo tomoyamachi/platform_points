@@ -3,9 +3,9 @@ package route
 import (
 	"github.com/labstack/echo"
 	echoMw "github.com/labstack/echo/middleware"
-	"github.com/tomoyamachi/platform_accounts/api"
 	"github.com/tomoyamachi/platform_accounts/db"
 	myMw "github.com/tomoyamachi/platform_accounts/middleware"
+	"github.com/tomoyamachi/platform_accounts/resource"
 )
 
 func Init() *echo.Echo {
@@ -13,7 +13,6 @@ func Init() *echo.Echo {
 	e := echo.New()
 
 	e.Debug()
-
 	// Set MiddleWare
 	e.Use(echoMw.Logger())
 	e.Use(echoMw.Recover())
@@ -25,9 +24,9 @@ func Init() *echo.Echo {
 	// Routes
 	v1 := e.Group("/api/v1")
 	{
-		v1.Post("/members", api.CreateMember)
-		v1.Get("/members", api.GetMembers)
-		v1.Get("/members/:id", api.GetMember)
+		v1.Post("/members", resource.CreateMember)
+		v1.Get("/members", resource.GetMembers)
+		v1.Get("/members/:id", resource.GetMember)
 	}
 	return e
 }

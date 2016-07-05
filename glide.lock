@@ -1,6 +1,50 @@
-hash: d80baa8a257ea034b399045ea3451dabf1150f3ab61de6e3215fced4ae7e80d0
-updated: 2016-07-05T11:05:49.601474042+09:00
+hash: 59ac45f82a071b808fefc5215bf7ecf7547523b4e33a74b13de765773a4d30d9
+updated: 2016-07-05T12:04:24.876724825+09:00
 imports:
+- name: github.com/dgrijalva/jwt-go
+  version: f0777076321ab64f6efc15a82d9d23b98539b943
+- name: github.com/go-sql-driver/mysql
+  version: 3654d25ec346ee8ce71a68431025458d52a38ac0
+- name: github.com/gocraft/dbr
+  version: 78b5b74da0b8bcbe167cc4c55d3383b6893848c3
+  subpackages:
+  - dialect
 - name: github.com/labstack/echo
   version: c00d017178d23261895b096b6e39e9b6bbca37dc
+  subpackages:
+  - engine/standard
+  - middleware
+  - engine
+  - log
+- name: github.com/labstack/gommon
+  version: 722aa12d41c236ce78ff48eac1cafe0107ecdc9d
+  subpackages:
+  - log
+  - bytes
+  - color
+- name: github.com/mattn/go-colorable
+  version: 9056b7a9f2d1f2d96498d6d146acd1f9d5ed3d59
+- name: github.com/mattn/go-isatty
+  version: 56b76bdf51f7708750eac80fa38b952bb9f32639
+- name: github.com/Sirupsen/logrus
+  version: f3cfb454f4c209e6668c95216c4744b8fddb2356
+- name: github.com/tomoyamachi/platform_accounts
+  version: 72b2eb4a647104dd844d0244f0e05ed76721aa13
+  subpackages:
+  - route
+  - conf
+  - model
+  - api
+  - db
+  - middleware
+- name: github.com/valyala/fasttemplate
+  version: 3b874956e03f1636d171bda64b130f9135f42cff
+- name: golang.org/x/net
+  version: b400c2eff1badec7022a8c8f5bea058b6315eed7
+  subpackages:
+  - context
+- name: golang.org/x/sys
+  version: a408501be4d17ee978c04a618e7a1b22af058c0e
+  subpackages:
+  - unix
 devImports: []
