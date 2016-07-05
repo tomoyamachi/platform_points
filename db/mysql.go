@@ -1,15 +1,16 @@
 package db
 
 import (
-	"platform_accounts/conf"
-
 	"github.com/Sirupsen/logrus"
+	"platform_accounts/conf"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/gocraft/dbr"
 )
 
 func Init() *dbr.Session {
+
 	session := getSession()
+
 	return session
 }
 

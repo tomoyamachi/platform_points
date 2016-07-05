@@ -1,10 +1,10 @@
 package route
 
 import (
+	"platform_accounts/api"
 	"platform_accounts/db"
+	"platform_accounts/handler"
 	myMw "platform_accounts/middleware"
-	"platform_accounts/resource"
-
 	"github.com/labstack/echo"
 	echoMw "github.com/labstack/echo/middleware"
 )
@@ -14,20 +14,25 @@ func Init() *echo.Echo {
 	e := echo.New()
 
 	e.Debug()
-	// Set MiddleWare
+
+	// Set Bundle MiddleWare
 	e.Use(echoMw.Logger())
-	e.Use(echoMw.Recover())
 	e.Use(echoMw.Gzip())
+	e.Use(echoMw.CORSWithConfig(echoMw.CORSConfig{
+		AllowOrigins: []string{"*"},
+		AllowHeaders: []string{echo.HeaderOrigin, echo.HeaderContentType, echo.HeaderAcceptEncoding},
+	}))
+	e.SetHTTPErrorHandler(handler.JSONHTTPErrorHandler)
 
 	// Set Custom MiddleWare
-	e.Use(myMw.TxMiddleware(db.Init()))
+	e.Use(myMw.TransactionHandler(db.Init()))
 
 	// Routes
 	v1 := e.Group("/api/v1")
 	{
-		v1.Post("/members", resource.CreateMember)
-		v1.Get("/members", resource.GetMembers)
-		v1.Get("/members/:id", resource.GetMember)
+		v1.POST("/members", api.PostMember())
+		v1.GET("/members", api.GetMembers())
+		v1.GET("/members/:id", api.GetMember())
 	}
 	return e
 }

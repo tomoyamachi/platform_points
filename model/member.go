@@ -3,61 +3,54 @@ package model
 import (
 	"time"
 
-	"github.com/Sirupsen/logrus"
 	"github.com/gocraft/dbr"
 )
 
 type Member struct {
-	Number      int64  `db:"number" json:"number"`
-	Name        string `db:"name" json:"name"`
-	DateCreated string `db:"date_created" json:"createdAt"`
+	Number    int64     `json:"number"`
+	Name      string    `json:"name"`
+	Position  string    `json:"position"`
+	CreatedAt time.Time `json:"createdAt"`
 }
 
-func NewMember(member int64, name string) *Member {
+func NewMember(member int64, name, position string) *Member {
 	return &Member{
-		Number:      member,
-		Name:        name,
-		DateCreated: time.Now(),
+		Number:    member,
+		Name:      name,
+		Position:  position,
+		CreatedAt: time.Now(),
 	}
 }
 
-func (m *Member) SaveMember(tx *dbr.Tx) error {
+func (m *Member) Save(tx *dbr.Tx) error {
 
 	_, err := tx.InsertInto("member").
-		Columns("number", "name", "date_created").
+		Columns("number", "name", "position", "created_at").
 		Record(m).
 		Exec()
 
-	if err != nil {
-		logrus.Error("Error")
-	}
-
 	return err
 }
 
-func (m *Member) LoadMember(tx *dbr.Tx, number int64) error {
+func (m *Member) Load(tx *dbr.Tx, number int64) error {
 
-	_, err := tx.Select("*").
+	return tx.Select("*").
 		From("member").
 		Where("number = ?", number).
-		Load(m)
-
-	if err != nil {
-		logrus.Error("Error")
-	}
-	return err
+		LoadStruct(m)
 }
 
 type Members []Member
 
-func (m *Members) LoadMembers(tx *dbr.Tx) error {
+func (m *Members) Load(tx *dbr.Tx, position string) error {
 
-	_, err := tx.Select("*").
-		From("member").
-		Load(m)
-
-	if err != nil {
-		logrus.Error("Error")
+	var condition dbr.Condition
+	if position != "" {
+		condition = dbr.Eq("position", position)
 	}
-	return err
+
+	return tx.Select("*").
+		From("member").
+		Where(condition).
+		LoadStruct(m)
 }
