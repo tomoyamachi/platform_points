@@ -1,3 +1,5 @@
-package: platform_accounts
+package: github.com/tomoyamachi/platform_accounts
 import:
   - package: github.com/labstack/echo
+  - package: github.com/gocraft/dbr
+  - package: github.com/Sirupsen/logrus
