@@ -1,6 +1,4 @@
 # coding: utf-8
-require 'cucumber-api'
-
 # チェックするドメインを指定
 # cucumber DOMAIN=http://sample.com/v1 と指定すれば、ドメインを変更できる
 # ENV['DOMAIN'] ||= 'http://localhost:8080/v1/'

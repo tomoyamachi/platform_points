@@ -1,0 +1,16 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "account_id": {
+            "type": "integer"
+        },
+        "app_code": {
+            "type": "string"
+        },
+        "account_name": {
+            "type": "string"
+        }
+    },
+    "required": ["account_id", "app_code", "account_name"]
+}
