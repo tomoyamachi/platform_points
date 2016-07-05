@@ -1,7 +1,8 @@
 package db
 
 import (
-	"github.com/tomoyamachi/platform_accounts/conf"
+	"platform_accounts/conf"
+
 	"github.com/Sirupsen/logrus"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/gocraft/dbr"

@@ -4,7 +4,8 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/tomoyamachi/platform_accounts/model"
+	"platform_accounts/model"
+
 	"github.com/gocraft/dbr"
 	"github.com/labstack/echo"
 )

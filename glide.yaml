@@ -1,4 +1,4 @@
-package: github.com/tomoyamachi/platform_accounts
+package: platform_accounts
 import:
   - package: github.com/labstack/echo
   - package: github.com/gocraft/dbr

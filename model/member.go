@@ -10,14 +10,14 @@ import (
 type Member struct {
 	Number      int64  `db:"number" json:"number"`
 	Name        string `db:"name" json:"name"`
-	DateCreated int64  `db:"date_created" json:"createdAt"`
+	DateCreated string `db:"date_created" json:"createdAt"`
 }
 
 func NewMember(member int64, name string) *Member {
 	return &Member{
 		Number:      member,
 		Name:        name,
-		DateCreated: time.Now().UnixNano(),
+		DateCreated: time.Now(),
 	}
 }
 

@@ -1,9 +1,10 @@
 package main
 
 import (
+	"platform_accounts/route"
+
 	"github.com/Sirupsen/logrus"
 	"github.com/labstack/echo/engine/standard"
-	"github.com/tomoyamachi/platform_accounts/route"
 )
 
 func init() {
