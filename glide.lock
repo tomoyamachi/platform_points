@@ -1,5 +1,5 @@
 hash: 59ac45f82a071b808fefc5215bf7ecf7547523b4e33a74b13de765773a4d30d9
-updated: 2016-07-05T12:04:24.876724825+09:00
+updated: 2016-07-05T12:08:17.742143427+09:00
 imports:
 - name: github.com/dgrijalva/jwt-go
   version: f0777076321ab64f6efc15a82d9d23b98539b943
@@ -29,14 +29,14 @@ imports:
 - name: github.com/Sirupsen/logrus
   version: f3cfb454f4c209e6668c95216c4744b8fddb2356
 - name: github.com/tomoyamachi/platform_accounts
-  version: 72b2eb4a647104dd844d0244f0e05ed76721aa13
+  version: d60686e87b10a8d980f183fb8a9ed6dae45e5cbb
   subpackages:
   - route
   - conf
   - model
-  - api
   - db
   - middleware
+  - resource
 - name: github.com/valyala/fasttemplate
   version: 3b874956e03f1636d171bda64b130f9135f42cff
 - name: golang.org/x/net
