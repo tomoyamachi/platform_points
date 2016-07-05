@@ -1,1 +1,1 @@
-Account API which PLATFORM USER
+Point API which PLATFORM USER

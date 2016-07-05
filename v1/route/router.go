@@ -4,7 +4,7 @@ import (
 	"platform_accounts/db"
 	"platform_accounts/handler"
 	myMw "platform_accounts/middleware"
-	"platform_accounts/v2/resource"
+	"platform_accounts/v1/resource"
 
 	"github.com/labstack/echo"
 	echoMw "github.com/labstack/echo/middleware"
