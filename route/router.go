@@ -1,11 +1,12 @@
 package route
 
 import (
+	"platform_accounts/db"
+	myMw "platform_accounts/middleware"
+	"platform_accounts/resource"
+
 	"github.com/labstack/echo"
 	echoMw "github.com/labstack/echo/middleware"
-	"github.com/tomoyamachi/platform_accounts/db"
-	myMw "github.com/tomoyamachi/platform_accounts/middleware"
-	"github.com/tomoyamachi/platform_accounts/resource"
 )
 
 func Init() *echo.Echo {
