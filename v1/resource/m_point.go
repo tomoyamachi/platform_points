@@ -30,10 +30,8 @@ func GetMPoint() echo.HandlerFunc {
 func GetMPoints() echo.HandlerFunc {
 	return func(c echo.Context) (err error) {
 		tx := c.Get("Tx").(*dbr.Tx)
-
-		position := c.QueryParam("position")
 		m_points := new(model.MPoints)
-		if err = m_points.Load(tx, position); err != nil {
+		if err = m_points.Load(tx); err != nil {
 			logrus.Debug(err)
 			return echo.NewHTTPError(fasthttp.StatusNotFound, "MPoint does not exists.")
 		}

@@ -22,14 +22,8 @@ func (m *MPoint) Load(tx *dbr.Tx, id int64) error {
 
 type MPoints []MPoint
 
-func (m *MPoints) Load(tx *dbr.Tx, code string) error {
-	var condition dbr.Condition
-	if code != "" {
-		condition = dbr.Eq("code", code)
-	}
-
+func (m *MPoints) Load(tx *dbr.Tx) error {
 	return tx.Select("*").
 		From("m_point").
-		Where(condition).
 		LoadStruct(m)
 }
