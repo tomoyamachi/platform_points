@@ -33,9 +33,7 @@ func Init() *echo.Echo {
 	{
 		v1.GET("/m_points", resource.GetMPoints())
 		v1.GET("/m_points/:id", resource.GetMPoint())
-		v1.POST("/members", resource.PostMember())
-		v1.GET("/members", resource.GetMembers())
-		v1.GET("/members/:id", resource.GetMember())
+		v1.POST("/login", resource.Login)
 	}
 	return e
 }
