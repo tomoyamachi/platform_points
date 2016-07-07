@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items": {
+      "type": "object",
+      "properties": {
+          "id": {
+              "type": "integer"
+          },
+          "code": {
+              "type": "string"
+          },
+          "point_label": { //ポイントラベル
+              "type": "integer"
+          },
+          "value": { // 所持数
+              "type": "integer"
+          }
+      },
+      "required": ["id", "code", "point_label", "value"]
+  }
+}
