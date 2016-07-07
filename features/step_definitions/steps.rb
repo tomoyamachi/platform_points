@@ -142,7 +142,9 @@ When(/^I send a (GET|POST|PATCH|PUT|DELETE) request to "(.*?)"$/) do |method, ur
   end
   request_url = $BASEURL+resolveUrl
 
+  puts request_url
   @headers = {} if @headers.nil?
+
   begin
     case method
       when 'GET'
@@ -161,6 +163,8 @@ When(/^I send a (GET|POST|PATCH|PUT|DELETE) request to "(.*?)"$/) do |method, ur
   end
 
   @response = CucumberApi::Response.create response
+  puts @response
+
   @headers = nil
   @body = nil
   @grabbed = nil
@@ -178,11 +182,6 @@ end
 
 # セッションを保持した状態での接続
 Given /^I am logged in as:$/ do |params|
-  # session_idとして保存されるIDをランダムに生成
-  if $current_session.nil?
-    $current_session = (0...8).map { (65 + rand(26)).chr }.join
-  end
-
   # 指定されたparameterでログインをテスト
   # When I am logged in as:
   #   | mail     | test@mail.com |
@@ -198,18 +197,17 @@ Given /^I am logged in as:$/ do |params|
   @headers = {
               :Accept => 'application/json',
               :'Content-Type' => 'application/json',
-              :Cookie => $SESSION_NAME+'='+$current_session,
   }
-
   # POSTでログインJSONレスポンスをパースしてアカウントIDを指定する
   response = RestClient.post $BASEURL+$LOGIN_ENDPOINT, @body, @headers
+  $current_session = response.cookies[$SESSION_NAME]
+
   @response = CucumberApi::Response.create response
   parsed = JSON.parse @response
 
   # 返却データから、本人のアカウントIDを保存する
   @account_id = parsed['id']
   @body = nil
-
   # 次回のリクエストでも、同じセッションで接続する(ログイン状態とみなされる)
   @headers = {
               :Accept => 'application/json',

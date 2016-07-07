@@ -1,14 +1,31 @@
-hash: 1dd1369783cd40fdb9dd2d24dff4b0d50d223584a29e384c308ad211805040c1
-updated: 2016-07-06T18:36:12.065420455+09:00
+hash: 3c870e12488c9ad16bb3f138e8480630348d77cf34997dea0f0233f266bd9939
+updated: 2016-07-07T17:18:18.626850178+09:00
 imports:
+- name: github.com/boj/redistore
+  version: fc113767cd6b051980f260d6dbe84b2740c46ab0
 - name: github.com/dgrijalva/jwt-go
   version: f0777076321ab64f6efc15a82d9d23b98539b943
+- name: github.com/echo-contrib/sessions
+  version: ef00243ed2a466219aa1dbed74bb5eb31c005667
+- name: github.com/garyburd/redigo
+  version: b8dc90050f24c1a73a52f107f3f575be67b21b7c
+  subpackages:
+  - redis
+  - internal
 - name: github.com/go-sql-driver/mysql
   version: 3654d25ec346ee8ce71a68431025458d52a38ac0
 - name: github.com/gocraft/dbr
   version: 78b5b74da0b8bcbe167cc4c55d3383b6893848c3
   subpackages:
   - dialect
+- name: github.com/gorilla/context
+  version: aed02d124ae4a0e94fea4541c8effd05bf0c8296
+- name: github.com/gorilla/securecookie
+  version: ff356348f74133a59d3e93aa24b5b4551b6fe90d
+- name: github.com/gorilla/sessions
+  version: 56ba4b0a11da87516629a57408a5f7e4c8ea7b0b
+- name: github.com/ipfans/echo-session
+  version: 475e787b178a90116709a0f5341a6fc9f3fc7bbe
 - name: github.com/klauspost/compress
   version: 14eb9c4951195779ecfbec34431a976de7335b0a
   subpackages:
@@ -38,8 +55,6 @@ imports:
   version: 56b76bdf51f7708750eac80fa38b952bb9f32639
 - name: github.com/Sirupsen/logrus
   version: f3cfb454f4c209e6668c95216c4744b8fddb2356
-- name: github.com/Unknwon/macaron
-  version: 9b82b0372a4edf52f66fbc8feaa6aafe0123001d
 - name: github.com/valyala/bytebufferpool
   version: a517d2d1537f5b02e9f6c23d4794160c6c2bc157
 - name: github.com/valyala/fasthttp
@@ -48,8 +63,6 @@ imports:
   - fasthttputil
 - name: github.com/valyala/fasttemplate
   version: 3b874956e03f1636d171bda64b130f9135f42cff
-- name: github.com/weisd/session
-  version: ab936a16a7d3ba4b402f1e87fbeffc7e97cb5b7c
 - name: golang.org/x/net
   version: b400c2eff1badec7022a8c8f5bea058b6315eed7
   subpackages:
