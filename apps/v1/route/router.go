@@ -4,7 +4,7 @@ import (
 	"platform_points/db"
 	"platform_points/handler"
 	myMw "platform_points/middleware"
-	"platform_points/v1/resource"
+	"platform_points/apps/v1/resource"
 
 	"github.com/echo-contrib/sessions"
 	"github.com/labstack/echo"
