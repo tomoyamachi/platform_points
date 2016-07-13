@@ -2,19 +2,22 @@ package resource
 
 import (
 	"net/http"
+	"platform_points/model"
+	"strconv"
 
 	"github.com/Sirupsen/logrus"
 	"github.com/echo-contrib/sessions"
+	"github.com/gocraft/dbr"
 	"github.com/labstack/echo"
+	"github.com/valyala/fasthttp"
 )
 
 func GetTargetAccountPoints(c echo.Context) error {
 	session := sessions.Default(c)
 	accountIdSession := session.Get("account_id")
-	accountIdUrl := c.Param("account_id")
 
-	logrus.Debug(accountIdSession)
-	logrus.Debug(accountIdUrl)
+	// URLからaccountIdをintで取得
+	accountIdUrl, _ := strconv.ParseInt(c.Param("account_id"), 0, 64)
 
 	if accountIdSession != accountIdUrl {
 		response := map[string]interface{}{
@@ -24,5 +27,12 @@ func GetTargetAccountPoints(c echo.Context) error {
 		return c.JSON(http.StatusMethodNotAllowed, response)
 	}
 
-	return c.JSON(http.StatusOK, accountIdSession)
+	tx := c.Get("Tx").(*dbr.Tx)
+	u_point := new(model.UPoints)
+	if err := u_point.LoadTargetAccountPoints(tx, accountIdUrl); err != nil {
+		logrus.Debug(err)
+		return echo.NewHTTPError(fasthttp.StatusNotFound, "Target User Points does not exists.")
+	}
+
+	return c.JSON(http.StatusOK, u_point)
 }
