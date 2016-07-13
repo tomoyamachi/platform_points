@@ -199,6 +199,7 @@ Given /^I am logged in as:$/ do |params|
               :'Content-Type' => 'application/json',
   }
   # POSTでログインJSONレスポンスをパースしてアカウントIDを指定する
+
   response = RestClient.post $BASEURL+$LOGIN_ENDPOINT, @body, @headers
   $current_session = response.cookies[$SESSION_NAME]
 

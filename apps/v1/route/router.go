@@ -1,10 +1,10 @@
 package route
 
 import (
+	"platform_points/apps/v1/resource"
 	"platform_points/db"
 	"platform_points/handler"
 	myMw "platform_points/middleware"
-	"platform_points/apps/v1/resource"
 
 	"github.com/echo-contrib/sessions"
 	"github.com/labstack/echo"
@@ -34,9 +34,7 @@ func Init() *echo.Echo {
 		panic(err)
 	}
 
-	//store, err := sessions.NewRedisStore(32, "tcp", "pointsession.iyjz8a.0001.apne1.cache.amazonaws.com:6379", "", []byte("secret"))
-	//logrus.Debug(store.Get())
-	e.Use(sessions.Sessions("PHPSESSID", store))
+	e.Use(sessions.Sessions("pointsession", store))
 
 	// Routes
 	v1 := e.Group("/v1")
