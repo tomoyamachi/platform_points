@@ -5,12 +5,11 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
-
 	"platform_points/conf"
 )
 
 type AccountResponse struct {
-	Id         int    `json:"id"`
+	Id         int64  `json:"id"`
 	Nickname   string `json:"nickname"`
 	Status     string `json:"status"`
 	LoginToken string `json:"login_token"`

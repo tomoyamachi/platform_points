@@ -9,8 +9,8 @@ type MPoint struct {
 	Code       string `json:"code"`
 	PointLabel string `json:"point_label"`
 	UnitLabel  string `json:"unit_label"`
-	Default    string `json:"default"`
-	Max        string `json:"max"`
+	Default    int64  `json:"default"`
+	Max        int64  `json:"max"`
 }
 
 func (m *MPoint) Load(tx *dbr.Tx, id int64) error {
